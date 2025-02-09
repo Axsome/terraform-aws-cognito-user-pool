@@ -124,6 +124,12 @@ resource "aws_cognito_user_pool" "user_pool" {
     }
   }
 
+  lifecycle {
+    ignore_changes = [
+      schema
+    ]
+  }
+
   dynamic "lambda_config" {
     for_each = try(coalesce(
       var.lambda_create_auth_challenge,
