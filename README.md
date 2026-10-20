@@ -3,7 +3,7 @@
 [![Build Status](https://github.com/mineiros-io/terraform-aws-cognito-user-pool/workflows/CI/CD%20Pipeline/badge.svg)](https://github.com/mineiros-io/terraform-aws-cognito-user-pool/actions)
 [![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/mineiros-io/terraform-aws-cognito-user-pool.svg?label=latest&sort=semver)](https://github.com/mineiros-io/terraform-aws-cognito-user-pool/releases)
 [![Terraform Version](https://img.shields.io/badge/terraform-1.x%20|%200.15%20|%200.14%20|%200.13%20|%200.12.20+-623CE4.svg?logo=terraform)](https://github.com/hashicorp/terraform/releases)
-[![AWS Provider Version](https://img.shields.io/badge/AWS-3.50+-F8991D.svg?logo=terraform)](https://github.com/terraform-providers/terraform-provider-aws/releases)
+[![AWS Provider Version](https://img.shields.io/badge/AWS-5.65+-F8991D.svg?logo=terraform)](https://github.com/terraform-providers/terraform-provider-aws/releases)
 [![Join Slack](https://img.shields.io/badge/slack-@mineiros--community-f32752.svg?logo=slack)](https://mineiros.io/slack)
 
 # terraform-aws-cognito-user-pool
@@ -13,7 +13,7 @@ A [Terraform] module for deploying and managing
 on [Amazon Web Services (AWS)][AWS].
 
 *This module supports Terraform v1.x, v0.15, v0.14, v0.13 as well as v0.12.20 and above
-and is compatible with the Terraform AWS provider v3.50 and above.
+and is compatible with the Terraform AWS provider v5.65 and above (below v7.0).
 
 
 - [Module Features](#module-features)
@@ -250,6 +250,12 @@ for details and use-cases.
   In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign in during this time, their password will need to be reset by an administrator.
 
   Default is `1`.
+
+- [**`password_history_size`**](#var-password_history_size): *(Optional `number`)*<a name="var-password_history_size"></a>
+
+  The number of previous passwords that users are prevented from reusing (`0`-`24`). Requires the user pool to be on the Essentials or Plus feature plan. Set to `null` to leave password history disabled.
+
+  Default is `null`.
 
 - [**`allow_software_mfa_token`**](#var-allow_software_mfa_token): *(Optional `bool`)*<a name="var-allow_software_mfa_token"></a>
 
