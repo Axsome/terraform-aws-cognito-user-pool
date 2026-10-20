@@ -21,7 +21,7 @@ header {
   }
 
   badge "tf-aws-provider" {
-    image = "https://img.shields.io/badge/AWS-3.50+-F8991D.svg?logo=terraform"
+    image = "https://img.shields.io/badge/AWS-5.65+-F8991D.svg?logo=terraform"
     url   = "https://github.com/terraform-providers/terraform-provider-aws/releases"
     text  = "AWS Provider Version"
   }
@@ -42,7 +42,7 @@ section {
     on [Amazon Web Services (AWS)][AWS].
 
     *This module supports Terraform v1.x, v0.15, v0.14, v0.13 as well as v0.12.20 and above
-    and is compatible with the Terraform AWS provider v3.50 and above.
+    and is compatible with the Terraform AWS provider v5.65 and above (below v7.0).
   END
 
   section {
@@ -321,6 +321,14 @@ section {
           default     = 1
           description = <<-END
             In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign in during this time, their password will need to be reset by an administrator.
+          END
+        }
+
+        variable "password_history_size" {
+          type        = number
+          default     = null
+          description = <<-END
+            The number of previous passwords that users are prevented from reusing (`0`-`24`). Requires the user pool to be on the Essentials or Plus feature plan. Set to `null` to leave password history disabled.
           END
         }
 

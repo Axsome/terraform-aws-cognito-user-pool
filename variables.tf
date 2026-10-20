@@ -357,6 +357,17 @@ variable "temporary_password_validity_days" {
   default     = 1
 }
 
+variable "password_history_size" {
+  type        = number
+  description = "(Optional) The number of previous passwords that users are prevented from reusing. Requires the user pool to be on the Essentials or Plus feature plan. Set to null to leave password history disabled."
+  default     = null
+
+  validation {
+    condition     = var.password_history_size == null ? true : var.password_history_size >= 0 && var.password_history_size <= 24
+    error_message = "The password_history_size must be between 0 and 24."
+  }
+}
+
 variable "allow_software_mfa_token" {
   description = "(Optional) Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA when 'sms_configuration' is not present, the 'mfa_configuration' argument must be set to OFF and the 'software_token_mfa_configuration' configuration block must be fully removed."
   type        = bool

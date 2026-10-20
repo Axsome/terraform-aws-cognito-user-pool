@@ -34,6 +34,7 @@ resource "aws_cognito_user_pool" "user_pool" {
     require_symbols                  = var.password_require_symbols
     require_uppercase                = var.password_require_uppercase
     temporary_password_validity_days = var.temporary_password_validity_days
+    password_history_size            = var.password_history_size
   }
 
   dynamic "account_recovery_setting" {

@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.10.0]
+
+### BREAKING
+
+- Minimum version of the aws provider has been bumped to `5.65.0` to support
+  `password_policy.password_history_size` in the `aws_cognito_user_pool`
+  resource. AWS provider `v6.x` is now supported.
+
+### Added
+
+- Add support for `password_history_size` to prevent password reuse
+
 ## [0.9.2]
 
 ### Added
@@ -158,7 +170,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Document the usage of examples.
 - Add unit tests for basic use cases.
 
-[unreleased]: https://github.com/mineiros-io/terraform-aws-cognito-user-pool/compare/v0.9.2...HEAD
+[unreleased]: https://github.com/Axsome/terraform-aws-cognito-user-pool/compare/v0.10.0...HEAD
+[0.10.0]: https://github.com/Axsome/terraform-aws-cognito-user-pool/compare/v0.9.2...v0.10.0
 [0.9.2]: https://github.com/mineiros-io/terraform-aws-cognito-user-pool/compare/v0.9.1...v0.9.2
 [0.9.1]: https://github.com/mineiros-io/terraform-aws-cognito-user-pool/compare/v0.9.0...v0.9.1
 [0.9.0]: https://github.com/mineiros-io/terraform-aws-cognito-user-pool/compare/v0.8.0...v0.9.0
